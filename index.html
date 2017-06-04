@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+        <meta charset="utf-8">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link href="styles/theme.css" rel="stylesheet" type="text/css" />
+        <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+        <script type="text/javascript" charset="utf-8" src="scripts/main.js"></script>
+
+		<link rel="apple-touch-icon" href="images/apple-touch-icon.png" />
+		<link rel="apple-touch-startup-image" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)" href="images/apple-touch-startup-image-640x1096.png">
+		<title>DataWallet - Mobile USSD Interface</title>
+		<link rel="stylesheet" href="styles/framework7.css">
+		<link rel="stylesheet" href="style.css">
+		<link rel="stylesheet" href="styles/blue.css">
+		<link type="text/css" rel="stylesheet" href="styles/swipebox.css" />
+		<link type="text/css" rel="stylesheet" href="styles/animations.css" />
+		<link href='http://fonts.googleapis.com/css?family=Roboto:400,300,900' rel='stylesheet' type='text/css'>
+      <script src="js/jquery-3.1.0.js"></script>
+            <script type="text/javascript">
+
+        $(document).ready(function () {
+            / desktop browser and older support /
+            $('#dial_dw').click(function () {       //adress ID
+                doCall('%2A120%2A277%23');
+            });
+
+            / mobile and new iOs constructs !! /
+
+            $('.no_pad').on('click', function () {      // address class
+                doCall('*999#123');
+            });
+
+            $('h2').on('tap', function () {     // will not work !! only works on single element ie.ID
+                doCall('*999#123');
+            });
+
+
+        });
+
+
+
+        function doCall(numTodial) {
+            if (window.cordova) {
+               // window.open('tel:' + numTodial, '_system');
+                cordova.InAppBrowser.open('tel:' + numTodial + '', '_system');
+            }
+        };
+
+
+
+    </script>
+
+    </head>
+    <body>
+        <div class="header">
+            <h1 style: background-image=url(img/logo.png)></h1>
+        </div>
+        <div class="subheader">
+            
+        </div>
+
+        <div class="content">
+            <div class="row -align-bottom">
+                <div class="col u-color-accent -text-center">
+                  <div class="row">
+             
+                <div class="col">
+                    <button class="button" id="openExternalInAppBrowser">MyDataWallet</button>
+                </div>
+            </div>
+         
+               <div class="col">
+                    <button class="button" a href="#" onclick="doCall('%2A141%23')">Check Balances</button>
+                </div>
+                     <div class="col">
+                    <button class="button" a href="#" onclick="doCall('%2A120%2A277%23')">FNB eWallet</button>
+                </div>
+                       <div class="col">
+                    <button class="button" a href="#" onclick="doCall('%2A141%2A9%23')">My Loyalty</button>
+                </div>
+            </div>
+            </div>
+                </div>
+            </div>
+    <div class="row">
+                <div class="col">
+                    <button class="button" id="openLocal">Scan Voucher</button>
+                </div>
+    
+        </div>
+        <div class="footer">
+              
+            <span>powered by ea</span>
+        </div>
+    </body>
+	<script type="text/javascript" src="scripts/jquery-1.10.1.min.js"></script>
+	<script type="text/javascript" src="scripts/jquery-ui.min.js"></script>
+	<script src="scripts/jquery.validate.min.js" type="text/javascript"></script>
+	<script type="text/javascript" src="scripts/framework7.js"></script>
+	<script type="text/javascript" src="scripts/my-app.js"></script>
+	<script type="text/javascript" src="scripts/jquery.swipebox.js"></script>
+	<script type="text/javascript" src="scripts/email.js"></script>
+</html>
